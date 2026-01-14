@@ -18,30 +18,14 @@ export default defineConfig(({ mode }) => {
       }
     },
     server: {
-      // this ensures that the browser opens upon server start
       open: true,
-      // this sets a default port to 3000
       port: PORT
     },
     define: {
       global: 'window'
     },
     resolve: {
-      alias: [
-        // { find: '', replacement: path.resolve(__dirname, 'src') },
-        // {
-        //   find: /^~(.+)/,
-        //   replacement: path.join(process.cwd(), 'node_modules/$1')
-        // },
-        // {
-        //   find: /^src(.+)/,
-        //   replacement: path.join(process.cwd(), 'src/$1')
-        // }
-        // {
-        //   find: 'assets',
-        //   replacement: path.join(process.cwd(), 'src/assets')
-        // },
-      ]
+      alias: []
     },
     css: {
       preprocessorOptions: {
@@ -67,6 +51,17 @@ export default defineConfig(({ mode }) => {
             }
           }
         ]
+      }
+    },
+    // Agrega esta sección para optimizar
+    build: {
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            vendor: ['react', 'react-dom'],
+            router: ['react-router-dom']
+          }
+        }
       }
     },
     base: API_URL,
