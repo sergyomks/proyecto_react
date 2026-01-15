@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = import.meta.env.VITE_API_URL || 'https://proyecto-facturacion-withered-sun-3872.fly.dev/api';
+const API_URL = import.meta.env.VITE_API_URL || 'http://66.94.117.112/api';
 
 // Crear instancia de axios
 const apiClient = axios.create({
